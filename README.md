@@ -1,19 +1,47 @@
-# Assignment 1
+# 🧠 Reinforcement Learning Agent with SARSA and More
 
-This is your personal Git repository for assignment 1. It contains all the code you need.
+This project implements intelligent agents using reinforcement learning algorithms such as **SARSA**, **Q-Learning**, and **ε-greedy exploration**. The agent learns to navigate an environment (e.g., a GridWorld or Pac-Man maze) by interacting with it and maximizing long-term reward.
 
-Please only edit the following files:
+> This project was part of an academic exploration into applied machine learning and autonomous agent design.
 
-- `agents/q2Agent.py`
-- `problems/q1a_problem.py`
-- `problems/q1b_problem.py`
-- `problems/q1c_problem.py`
-- `solvers/q1a_solver.py`
-- `solvers/q1b_solver.py`
-- `solvers/q1c_solver.py`
+---
 
-Other files will not be seen in the automatic grading system.
+## 📌 Features
 
-To use Git, you can use the `git` command in the terminal or [SourceTree](https://www.sourcetreeapp.com/) if you prefer a GUI. Once ready for grading, push your code to your BitBucket repo and click the Evaluate My Code button in the grading portal. The grading system will pull your code from this BitBucket repo and run the evaluation.
+- ✅ Implemented **SARSA (State-Action-Reward-State-Action)** algorithm from scratch
+- ✅ Integrated **Q-learning** with epsilon-greedy policies
+- ✅ Custom reward shaping to improve learning performance
+- ✅ Designed exploration-vs-exploitation trade-offs using decaying epsilon strategies
+- ✅ Visual environment simulations (e.g., Pac-Man, GridWorld)
+- ✅ Logging and debugging tools to monitor agent behavior over episodes
 
-This repository is originally cloned from the `assignment1` branch of the repository at <https://github.com/ethantwills/fit3080_2024>. If there are updates to this code, please merge from here.
+---
+
+## 🧠 Algorithms Implemented
+
+| Algorithm | Description |
+|----------|-------------|
+| **SARSA** | On-policy method for learning state-action values. The agent updates its Q-values using the action actually taken in the next state. |
+| **Q-Learning** | Off-policy method that uses the max action-value from the next state, regardless of the policy being followed. |
+| **ε-greedy** | A strategy where the agent explores randomly with probability ε and exploits the best-known action otherwise. |
+
+---
+
+## 🎯 Goal of the Project
+
+The goal was to develop an intelligent agent capable of learning optimal strategies through interaction with its environment, without prior knowledge of the environment’s dynamics.
+
+This included:
+- Understanding the convergence properties of SARSA vs Q-Learning
+- Testing robustness of the learned policy in stochastic environments
+- Exploring feature engineering and state abstraction
+
+---
+
+## 🛠️ Installation & Setup
+
+```bash
+git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+cd YOUR_REPO_NAME
+pip install -r requirements.txt
+python run_agent.py
