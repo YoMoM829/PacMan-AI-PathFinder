@@ -1,47 +1,71 @@
-# 🧠 Reinforcement Learning Agent with SARSA and More
+# 👾 Pac-Man AI – Classical Search & Adversarial Agents
 
-This project implements intelligent agents using reinforcement learning algorithms such as **SARSA**, **Q-Learning**, and **ε-greedy exploration**. The agent learns to navigate an environment (e.g., a GridWorld or Pac-Man maze) by interacting with it and maximizing long-term reward.
+This project implements intelligent Pac-Man agents using classical artificial intelligence algorithms such as **Minimax**, **Alpha-Beta Pruning**, **Expectimax**, and **A\***. The agents are designed to make optimal decisions in a dynamic environment involving ghosts, food pellets, and power capsules.
 
-> This project was part of an academic exploration into applied machine learning and autonomous agent design.
+> Developed as part of an AI coursework (e.g., UC Berkeley CS188), this assignment focuses on building adversarial agents and pathfinding strategies without relying on machine learning.
 
 ---
 
-## 📌 Features
+## 🧩 Features
 
-- ✅ Implemented **SARSA (State-Action-Reward-State-Action)** algorithm from scratch
-- ✅ Integrated **Q-learning** with epsilon-greedy policies
-- ✅ Custom reward shaping to improve learning performance
-- ✅ Designed exploration-vs-exploitation trade-offs using decaying epsilon strategies
-- ✅ Visual environment simulations (e.g., Pac-Man, GridWorld)
-- ✅ Logging and debugging tools to monitor agent behavior over episodes
+- ✅ **Reflex Agent** using evaluation functions
+- ✅ **Minimax Agent** (perfect-play adversarial search)
+- ✅ **Alpha-Beta Pruning Agent** (optimized minimax)
+- ✅ **Expectimax Agent** (probabilistic ghost behavior)
+- ✅ **Custom Evaluation Function** to guide decisions
+- ✅ **A\* Search** for efficient pathfinding (optional/extra)
+
+---
+
+## 📷 Demo
+
+> (Include a screenshot or GIF of your Pac-Man AI dodging ghosts and grabbing pellets if available.)
 
 ---
 
 ## 🧠 Algorithms Implemented
 
-| Algorithm | Description |
-|----------|-------------|
-| **SARSA** | On-policy method for learning state-action values. The agent updates its Q-values using the action actually taken in the next state. |
-| **Q-Learning** | Off-policy method that uses the max action-value from the next state, regardless of the policy being followed. |
-| **ε-greedy** | A strategy where the agent explores randomly with probability ε and exploits the best-known action otherwise. |
+### Minimax Agent
+- Treats ghosts as adversaries
+- Recursively evaluates game trees to a fixed depth
+- Picks the move that maximizes Pac-Man’s guaranteed outcome
+
+### Alpha-Beta Agent
+- Pruned version of minimax to reduce computation
+- Cuts off branches that cannot affect the final decision
+- Greatly improves efficiency for deeper trees
+
+### Expectimax Agent
+- Models ghosts as stochastic agents
+- Uses expected values rather than worst-case assumptions
+- More realistic for uncertain environments
+
+### Reflex Agent
+- Evaluates actions based on a hand-crafted function considering:
+  - Distance to nearest food
+  - Ghost proximity
+  - Power capsule availability
 
 ---
 
-## 🎯 Goal of the Project
+## 🔍 Evaluation Function Design
 
-The goal was to develop an intelligent agent capable of learning optimal strategies through interaction with its environment, without prior knowledge of the environment’s dynamics.
+Custom evaluation function takes into account:
+- Manhattan distance to closest food
+- Distance to active/scared ghosts
+- Number of remaining food pellets
+- Current score and penalty for stopping
 
-This included:
-- Understanding the convergence properties of SARSA vs Q-Learning
-- Testing robustness of the learned policy in stochastic environments
-- Exploring feature engineering and state abstraction
+> This function was critical for reflex and depth-limited agents to behave effectively.
 
 ---
 
-## 🛠️ Installation & Setup
+## 🗂️ File Structure
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-cd YOUR_REPO_NAME
-pip install -r requirements.txt
-python run_agent.py
+.
+├── multiAgents.py          # Main AI logic for agents
+├── search.py               # A* and other search utilities
+├── pacman.py               # Game engine
+├── util.py                 # Helper functions
+├── README.md
